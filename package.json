@@ -6,7 +6,6 @@
     "clean": "rimraf dist",
     "gulp": "gulp",
     "start": "webpack-dev-server --mode development",
-    "test": "npm run clean && gulp test",
     "webpack": "webpack"
   },
   "devDependencies": {

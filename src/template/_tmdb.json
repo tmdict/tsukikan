@@ -1,0 +1,9 @@
+    {
+      "url":"<%= file.fm.url %>",
+      "date":"<%= file.fm.date.getFullYear() %>-<%= ('0' + (file.fm.date.getMonth()+1)).slice(-2) %>-<%= ('0' + file.fm.date.getUTCDate()).slice(-2) %>",
+      "en":"<%= file.fm.title.replace(/\"/g, '\\\"') %>",
+      "ja":"<%= file.fm.japanese %>",
+      "category":"<%= file.fm.category %>",
+      "tag":[<% _.each(file.fm.tag, function(tag, i){ %><% if (i !== 0) { %>,<% } %>"<%= tag %>"<% }); %>],
+      "img":"<%= file.fm.img[0] %>_i.jpg"
+    }

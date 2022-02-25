@@ -1,2 +1,3 @@
 # tsukikan
-A small TYPE-MOON Site
+
+Generates the Tsuki-kan site.

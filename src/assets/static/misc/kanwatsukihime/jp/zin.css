@@ -1,0 +1,38 @@
+
+
+
+
+
+/*
+     FILE ARCHIVED ON 9:13:41 Mar 6, 2005 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 17:27:41 Aug 13, 2011.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+body {
+	font-size: 13px;
+	scrollbar-track-color:#CC0000;
+	scrollbar-face-color:#CC0000;
+	scrollbar-shadow-color:#ffffff;
+	scrollbar-darkshadow-color:#CC0000;
+	scrollbar-highlight-color:#ffffff;
+	scrollbar-3dlight-color:#CC0000;
+	scrollbar-arrow-color:#ffffff;
+	}
+
+td {
+	font-size: 13px;
+	}
+
+a:link { text-decoration:none; color:#0030Ca; }
+a:visited { text-decoration:none; color:#00706D; }
+a:active { text-decoration:none; color:#860023; }
+a:hover { text-decoration:underline; color:#a46400; }
+
+
+a.mmn:link { text-decoration:none; color:#006aCC; font-size:12px;font-weight:bold; }
+a.mmn:visited { text-decoration:none; color:#006aCC; font-size:12px;font-weight:bold; }
+a.mmn:active { text-decoration:none; color:#006aCC; font-size:12px;font-weight:bold; }
+a.mmn:hover { text-decoration:underline; color:#CC4D00; font-size:12px;font-weight:bold; }

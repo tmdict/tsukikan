@@ -1,0 +1,145 @@
+
+@import 'normalize';
+
+$font-title: "Trebuchet MS", Trebuchet, "Microsoft YaHei", sans-serif;
+$font-text: Verdana, Arial, "Microsoft YaHei", sans-serif;
+
+$primary-red: #c00;
+$link-blue: #1777b1;
+$shade-brown: #f8f7ef;
+$light-solid-border: 1px solid #aaa;
+$light-dotted-border: 1px dotted #aaa;
+$dark-dotted-border: 1px dotted #333;
+
+html, body {
+  height: 100%;
+  background: url('img/bg_dark.gif') top center;
+  color: #000;
+  font: 1em $font-text;
+}
+
+a:link, a:visited {
+  color: $link-blue;
+  text-decoration: none;
+}
+
+body a:hover {
+  color: $primary-red;
+}
+
+h1 {
+  color: $primary-red;
+  font: 2em Georgia, serif;
+  letter-spacing: .2em;
+  margin: 10px 0 20px;
+}
+
+h2 {
+  color: $primary-red;
+  font: bold 1.2em $font-title;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+h3 {
+  font: bold 1em $font-title;
+  color: #777;
+  letter-spacing: .2em;
+  margin: 30px 0 15px;
+  padding: 0 5px 5px;
+  border-bottom: 1px solid #777;
+}
+
+h4 {
+  width: 148px;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 2px #aaa;
+  font: normal 1.6em Georgia, serif;
+  color: #aaa;
+  padding: 2px 0;
+  margin: 25px 0 0 22px;
+  display: block;
+}
+
+blockquote {
+  color: #777;
+  border-left: 3px solid #ccc;
+  padding-left: 12px;
+}
+
+.center {
+  margin: 5px auto;
+  text-align: center;
+}
+
+.left {
+  float: left;
+  margin: 5px 15px;
+}
+
+.right {
+  float: right;
+  margin: 5px 15px;
+}
+
+.border {
+  border: 1px solid #777;
+  padding: 2px;
+}
+
+.separator {
+  height: 19px;
+  width: 500px;
+  background: transparent url('img/ornament2.png') no-repeat;
+  margin: 30px auto;
+}
+
+.separator-small {
+  height: 19px;
+  width: 190px;
+  background: transparent url('img/ornament.png') no-repeat;
+  margin: 30px auto;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#top {
+  height: 2em;
+  background: $shade-brown;
+  border-top: 5px solid #333;
+  border-bottom: 1px solid #777;
+}
+
+#logo {
+  background: url('img/banner.png') left top no-repeat;
+  position: absolute;
+  top: 0;
+  left: 22px;
+  z-index: 7;
+  width: 156px;
+  height: 260px;
+  display: block;
+
+  &:hover {
+    background: url('img/banner_.png') left top no-repeat;
+  }
+
+  a {
+    font-size: 0;
+    width: 156px;
+    height: 260px;
+    display: block;
+  }
+}
+
+@import 'side';
+
+@import 'main';
+
+@import 'tmdb';

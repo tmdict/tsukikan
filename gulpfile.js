@@ -3,7 +3,7 @@ const changed = require('gulp-changed');
 const concat = require('gulp-concat');
 const data = require('gulp-data');
 const frontmatter = require('front-matter');
-const markdown = require('gulp-markdown');
+const marked = require('marked');
 const print = require('gulp-print').default;
 const rename = require('gulp-rename');
 const sass = require('gulp-sass')(require('sass'));
@@ -43,8 +43,17 @@ function buildTmdbHtml() {
         return fm;
       })
     )
-    .pipe(markdown())
+    .pipe(
+      data(function (file) {
+        file.contents = Buffer.from(marked.parse(String(file.contents)));
+      })
+    )
     .pipe(wrap({ src: path.template + '_tmdb.html' }))
+    .pipe(
+      rename(function (path) {
+        path.extname = '.html';
+      })
+    )
     .pipe(changed('dist/tmdb'), { hasChanged: changed.compareSha1Digest })
     .pipe(dest('dist/tmdb'))
     .pipe(print());

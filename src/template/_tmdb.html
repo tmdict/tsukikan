@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= attr.title %> | Tsuki-kan</title>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://www.tsukikan.com/tmdb/<%= attr.url %>" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="../src/style.min.css" />
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <div id="logo"><a href="../">Home</a></div>
+
+    <div id="side">
+        <ul>
+            <li><a title="History of TYPE-MOON" href="../history.html">History</a></li>
+            <li><a title="Miscellanea" href="../misc/">Misc</a></li>
+            <li><a title="TM Merchandise Database" class="active" href="../tmdb/">TMdb</a></li>
+            <li><a title="Links" href="../links.html">Links</a></li>
+            <li><a title="Update Log" href="../update.html">Site</a></li>
+        </ul>
+
+        <h4>Works</h4>
+        <a href="../tsukihime/"><img class="works" src="../src/img/tsukihime.png" title="Tsukihime" alt="tsukihime"></a>
+        <a href="../fate/"><img class="works" src="../src/img/fate.png" title="Fate" alt="fate"></a>
+        <a href="../mahoyo/"><img class="works" src="../src/img/mahoyo.png" title="Mahoutsukai no Yoru" alt="mahoyo"></a>
+        <a href="../rakkyo/"><img class="works" src="../src/img/rakkyo.png" title="Kara no Kyoukai" alt="rakkyo"></a>
+        <a href="../merubura/"><img class="works" src="../src/img/merubura.png" title="Melty Blood" alt="merubura"></a>
+    </div>
+
+    <div id="main" class="tmdb">
+        <h1><%= attr.title %></h1>
+
+        <div class="tmdb-info group first">
+            <div class="tmdb-info-label">Japanese</div>
+            <div class="tmdb-info-content"><%= attr.japanese %></div>
+        </div>
+        <div class="tmdb-info group">
+            <div class="tmdb-info-label">Category</div>
+            <div class="tmdb-info-content"><a href="./#+cat.<%= attr.category %>"><%= attr.category %></a></div>
+        </div>
+        <div class="tmdb-info group">
+            <div class="tmdb-info-label">Tag</div>
+            <div class="tmdb-info-content"><% _.each(attr.tag, function(tag, i){ %><% if (i !== 0) { %>, <% } %><a href="./#+tag.<%= tag %>"><%= tag %></a><% }); %></div>
+        </div>      
+        <div class="tmdb-info group">
+            <div class="tmdb-info-label">Release Info</div>
+            <div class="tmdb-info-content"><% _.each(attr.release, function(release, i){ %><% if (i !== 0) { %><br /><% } %><%= release %><% }); %></div>
+        </div>
+        <% if (typeof(attr.link) !== "undefined") { %>
+        <div class="tmdb-info group">
+            <div class="tmdb-info-label">Link</div>
+            <div class="tmdb-info-content"><% _.each(attr.link, function(link, i){ %><% if (i !== 0) { %><br /><% } %><a href="<%= link %>"><%= link %></a><% }); %></div>
+        </div>
+        <% } %>
+<%= contents %>
+
+        <div class="separator-small"></div>
+
+        <div class="tmdb-gallery group">
+            <% _.each(attr.img, function(img, i){ %><% if (img !== "na") { %><div class="tmdb-gallery-item"><a href="../src/img/tmdb/<%= img %>.jpg"><img src="../src/img/tmdb/thumb/<%= img %>_s.jpg" alt="<%= img %>" /></a></div><% } %><% }); %>
+        </div>
+    </div>
+
+    <div id="footer"><span id="copyright">© 2007–2017 Tsuki-kan</span></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+// Sidebar
+
+#side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: rgba(0,0,0,.3) url('img/bg_slash.png') left top repeat;
+  width: 200px;
+  border-bottom: 1px dotted #000;
+  padding-bottom: 30px;
+
+  ul {
+    list-style: none;
+    margin: 300px 0 40px 26px;
+    padding: 0 15px;
+    border-left: 4px dotted #777;
+    width: 148px;
+  }
+
+  li {
+    margin: 7px 0;
+    width: 148px;
+
+    a {
+      width: 148px;
+      letter-spacing: 0.2em;
+      text-shadow: 0 0 2px $shade-brown;
+      font: normal 1.6em Georgia, serif;
+      color: $shade-brown;
+      padding: 2px 0;
+      display: block;
+
+      &.active {
+        color: $primary-red;
+        text-shadow: 0 0 2px $primary-red;
+      }
+
+      &:hover {
+        color: $primary-red;
+        text-shadow: 0 0 2px $primary-red;
+      }
+    }
+  }
+
+  img {
+    border: 2px solid #777;
+    border-radius: 8px;
+    margin: 10px 0 10px 22px;
+
+    &:hover {
+      opacity:.7;
+    }
+  }
+}

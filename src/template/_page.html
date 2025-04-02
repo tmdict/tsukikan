@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= attr.title %> | Tsuki-kan</title>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://www.tsukikan.com/<%= attr.url %>" />
+    <link rel="shortcut icon" href="<%= attr.dir %>favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="<%= attr.dir %>src/style.min.css" />
+<% if (typeof(attr.style) !== "undefined") { %>
+<%= attr.style %>
+<% } %>
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <div id="logo"><a href="<%= attr.dir %>">Home</a></div>
+
+    <div id="side">
+        <ul>
+            <li><a title="History of TYPE-MOON" <% if (attr.nav === "history") { %>class="active" <% } %>href="<%= attr.dir %>history.html">History</a></li>
+            <li><a title="Miscellanea" <% if (attr.nav === "misc") { %>class="active" <% } %>href="<%= attr.dir %>misc/">Misc</a></li>
+            <li><a title="TM Merchandise Database" <% if (attr.nav === "tmdb") { %>class="active" <% } %>href="<%= attr.dir %>tmdb/">TMdb</a></li>
+            <li><a title="Links" <% if (attr.nav === "link") { %>class="active" <% } %>href="<%= attr.dir %>links.html">Links</a></li>
+            <li><a title="Update Log" <% if (attr.nav === "site") { %>class="active" <% } %>href="<%= attr.dir %>update.html">Site</a></li>
+        </ul>
+
+        <h4>Works</h4>
+        <a href="<%= attr.dir %>tsukihime/"><img class="works" src="<%= attr.dir %>src/img/tsukihime.png" title="Tsukihime" alt="tsukihime"></a>
+        <a href="<%= attr.dir %>fate/"><img class="works" src="<%= attr.dir %>src/img/fate.png" title="Fate" alt="fate"></a>
+        <a href="<%= attr.dir %>mahoyo/"><img class="works" src="<%= attr.dir %>src/img/mahoyo.png" title="Mahoutsukai no Yoru" alt="mahoyo"></a>
+        <a href="<%= attr.dir %>rakkyo/"><img class="works" src="<%= attr.dir %>src/img/rakkyo.png" title="Kara no Kyoukai" alt="rakkyo"></a>
+        <a href="<%= attr.dir %>merubura/"><img class="works" src="<%= attr.dir %>src/img/merubura.png" title="Melty Blood" alt="merubura"></a>
+    </div>
+
+    <div id="main" class="group">
+<%= contents %>
+    </div>
+
+    <div id="footer"><span id="copyright">© 2007–2017 Tsuki-kan</span></div>
+</body>
+<% if (typeof(attr.script) !== "undefined") { %><%= attr.script %><% } %>
+</html>

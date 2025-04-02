@@ -1,0 +1,9 @@
+    {
+      "url":"<%= attr.url %>",
+      "date":"<%= attr.date.getFullYear() %>-<%= ('0' + (attr.date.getMonth()+1)).slice(-2) %>-<%= ('0' + attr.date.getUTCDate()).slice(-2) %>",
+      "en":"<%= attr.title.replace(/\"/g, '\\\"') %>",
+      "ja":"<%= attr.japanese %>",
+      "category":"<%= attr.category %>",
+      "tag":[<% _.each(attr.tag, function(tag, i){ %><% if (i !== 0) { %>,<% } %>"<%= tag %>"<% }); %>],
+      "img":"<%= attr.img[0] %>_i.jpg"
+    }

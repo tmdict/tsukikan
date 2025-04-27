@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 class App extends React.Component {
   constructor(props) {
@@ -138,4 +138,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App ver={db.version} data={db.data} />, document.getElementById('main'));
+const root = createRoot(document.getElementById('main'));
+root.render(<App ver={db.version} data={db.data} />);

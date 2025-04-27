@@ -1,15 +1,18 @@
-const { dest, parallel, series, src } = require('gulp');
-const changed = require('gulp-changed');
-const concat = require('gulp-concat');
-const data = require('gulp-data');
-const frontmatter = require('front-matter');
-const marked = require('marked');
-const print = require('gulp-print').default;
-const rename = require('gulp-rename');
-const sass = require('gulp-sass')(require('sass'));
-const sitemap = require('gulp-sitemap');
-const uglify = require('gulp-uglify');
-const wrap = require('gulp-wrap');
+import { dest, parallel, series, src } from 'gulp';
+import concat from 'gulp-concat';
+import data from 'gulp-data';
+import frontmatter from 'front-matter';
+import { marked } from 'marked';
+import print from 'gulp-print';
+import rename from 'gulp-rename';
+import gulpSass from 'gulp-sass';
+import dartSass from 'sass';
+import sitemap from 'gulp-sitemap';
+import uglify from 'gulp-uglify';
+import wrap from 'gulp-wrap';
+
+const sass = gulpSass(dartSass);
+const printDefault = print.default;
 
 const path = {
   template: 'src/template/',
@@ -28,9 +31,8 @@ function buildHtml() {
       })
     )
     .pipe(wrap({ src: path.template + '_page.html' }))
-    .pipe(changed('dist'), { hasChanged: changed.compareSha1Digest })
     .pipe(dest('dist'))
-    .pipe(print());
+    .pipe(printDefault());
 }
 
 function buildTmdbHtml() {
@@ -54,9 +56,8 @@ function buildTmdbHtml() {
         path.extname = '.html';
       })
     )
-    .pipe(changed('dist/tmdb'), { hasChanged: changed.compareSha1Digest })
     .pipe(dest('dist/tmdb'))
-    .pipe(print());
+    .pipe(printDefault());
 }
 
 function buildTmdbJson() {
@@ -82,25 +83,22 @@ function buildTmdbJson() {
         suffix: '.min',
       })
     )
-    .pipe(changed('dist/src'), { hasChanged: changed.compareSha1Digest })
     .pipe(dest('dist/src'))
-    .pipe(print());
+    .pipe(printDefault());
 }
 
 function buildStaticFiles() {
-  return src(path.assets + 'static/**/*')
-    .pipe(changed('dist'), { hasChanged: changed.compareSha1Digest })
+  return src(path.assets + 'static/**/*', { encoding: false })
     .pipe(dest('dist'))
-    .pipe(print());
+    .pipe(printDefault());
 }
 
 function buildCss() {
   return src(path.assets + 'css/tsukikan.scss')
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(rename('style.min.css'))
-    .pipe(changed('dist/src'), { hasChanged: changed.compareSha1Digest })
     .pipe(dest('dist/src'))
-    .pipe(print());
+    .pipe(printDefault());
 }
 
 function buildSitemap() {
@@ -113,10 +111,10 @@ function buildSitemap() {
       })
     )
     .pipe(dest('dist'))
-    .pipe(print());
+    .pipe(printDefault());
 }
 
-exports.default = series(
+export default series(
   parallel(buildHtml, buildTmdbHtml, buildTmdbJson),
   parallel(buildCss, buildStaticFiles),
   buildSitemap
